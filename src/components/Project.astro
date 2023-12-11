@@ -1,0 +1,38 @@
+---
+export interface Props {
+  name: string;
+  description: string;
+  language: string;
+  link: string;
+}
+
+const { name, description, language, link } = Astro.props;
+---
+
+<a href={link ?? ""}>
+    <div class="lg:h-36 flex flex-col justify-between gap-y-2 border border-pink-300 hover:scale-105 ease-out transition-transform p-4 rounded-xl">
+      <div class="flex flex-col gap-y-2 max-w-sm">
+        <span class="text-xl font-medium">{name}</span>
+        <p>{description}</p>
+      </div>
+      <div class="flex items-center gap-x-2">
+        <div class="flex gap-x-1 items-center">
+          <span>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 21.5L17.5 13L13 10L15 2.5L6.5 11L11 14L9 21.5Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <div class="text-sm">{language}</div>
+        </div>
+      </div>
+    </div>
+  </a>  

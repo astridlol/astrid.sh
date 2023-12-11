@@ -1,0 +1,32 @@
+---
+import Project from "./Project.astro";
+import type ProjectInfo from "../interfaces/ProjectInfo";
+
+const repos: ProjectInfo[] = [
+  {
+    name: "Everly",
+    description: "Whitelabel social media notification bot",
+    language: "typescript",
+    link: "https://everly.sh"
+  },
+  {
+    name: "Birthday Quest",
+    description: "Virtual birthday card creation platform",
+    language: "typescript",
+    link: "https://bday.quest"
+  }
+]
+---
+
+{
+  repos.map((project) => {
+    return (
+      <Project
+        name={project.name}
+        description={project.description}
+        language={project.language}
+        link={project.link}
+      />
+    );
+  })
+}
