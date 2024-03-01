@@ -1,0 +1,39 @@
+---
+const links: {
+  name: string;
+  url: string;
+}[] = [
+  {
+    name: "Twitter",
+    url: "https://twitter.com/maybeastrid",
+  },
+  {
+    name: "GitHub",
+    url: "/github",
+  },
+  {
+    name: "exp",
+    url: "/experience",
+  },
+];
+---
+
+<div class="m-4 flex items-center justify-between">
+  <div class="text-2xl font-bold text-pink-200 tracking-[3px]">
+    [<a href="/"><span class="text-xl">astrid</span></a>]
+  </div>
+  <div class="flex">
+    {
+      links.map((link) => {
+        return (
+          <a
+            href={link.url}
+            class="text-pink-200 mr-4 tracking-[4px] hover:tracking-[8px] transition-all duration-200"
+          >
+            [{link.name.toLowerCase()}]
+          </a>
+        );
+      })
+    }
+  </div>
+</div>

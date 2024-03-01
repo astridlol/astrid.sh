@@ -1,0 +1,27 @@
+---
+const buttons: {
+  imageURL: string;
+  siteURL: string;
+}[] = [
+  {
+    imageURL: "/buttons/azzy.png",
+    siteURL: "https://astrid.sh/",
+  },
+  {
+    imageURL: "https://kibty.town/files/img/buttons/kibty.town-badge.gif",
+    siteURL: "https://kibty.town/",
+  },
+];
+---
+
+<>
+  {
+    buttons.map((link) => {
+      return (
+        <a class="inline-flex ml-2 mr-2" href={link.siteURL}>
+          <img src={link.imageURL} alt={link.siteURL} />
+        </a>
+      );
+    })
+  }
+</>

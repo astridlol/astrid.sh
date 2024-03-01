@@ -1,0 +1,122 @@
+---
+import Navbar from "../components/Navbar.astro";
+
+type AgeResponse = {
+  age: number;
+  nextBirthday: string;
+};
+
+const ageResponse = await fetch("https://age.astrid.sh/11/19/03").then(
+  async (response) => {
+    return (await response.json()) as AgeResponse;
+  }
+);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>astrid &lt;3</title>
+  </head>
+  <body class="h-min-screen bg-neutral-900 font-mono">
+    <Navbar />
+
+    <div class="m-12 text-white">
+      <h2 class="text-3xl">about me</h2>
+      <h2 class="text-lg">learn more about astrid herself</h2>
+      <div class="mt-12">
+        <p>
+          okay uhh, to start. my name is astrid, if that wasn't obvious. i am a {
+            ageResponse.age
+          } year old girl residing within the united states &lt;3
+        </p>
+
+        <!-- hobbies -->
+        <section>
+          <p class="mt-4">
+            my hobbies include:
+            <ul>
+              <li>
+                • baking - baking is a huge passion of mine, i LOVE baking and i
+                hope to work as a baker some day.
+              </li>
+              <li>
+                • programming - being able solving problems within your own
+                projects is quite fulfilling. it's a very good way to spend
+                time.
+              </li>
+              <li>
+                • reading - whilst it's not a big part of my life, it is a great
+                way to ignore the outside world and escape into another.
+              </li>
+              <li>
+                • walking - walks are very underrated. nature is so pretty and
+                the fresh air is always amazing. it's a great way to get your
+                thoughts out, as well as brainstorm new ideas.
+              </li>
+            </ul>
+          </p>
+        </section>
+
+        <!-- FAQ -->
+        <section>
+          <h3 class="text-2xl mt-4">faq</h3>
+          <p class="mt-4">
+            <ul>
+              <li>
+                • favorite colour? - <span class="text-pink-200">pink</span> :3
+              </li>
+              <li>
+                • favorite cookie? - i am very fond of peanut butter cookies,
+                due to the simplicity and the ties it has to my childhood. but,
+                snickerdoodles are a very close second.
+              </li>
+              <li>
+                • favorite programming language? - i won't go into much detail
+                here, <span class="text-xs"
+                  >(you can check out <a href="/experience"
+                    ><span class="text-pink-200 italic">this</span></a
+                  > page for more information)</span
+                >
+
+                but i personally love kotlin and typescript. they work as two
+                peas in a pod, whilst having different use cases.
+              </li>
+            </ul>
+          </p>
+        </section>
+
+        <!-- contact -->
+        <section>
+          <h3 class="text-2xl mt-4">contact</h3>
+          <p class="mt-4">
+            contact <span class="italic">should</span> be through my email, unless
+            we are friends.
+            <ul class="mt-2">
+              <li>
+                • email - <a href="mailto:me@astrid.sh" class="underline"
+                  >me@astrid.sh</a
+                >
+              </li>
+              <li>
+                • twitter - <a
+                  href="https://twitter.com/maybeastrid"
+                  class="underline">@maybeastrid</a
+                >
+              </li>
+              <li>
+                discord - <a
+                  href="https://discord.com/users/852656702037164053"
+                  class="underline">@maybeastrid</a
+                >
+              </li>
+            </ul>
+          </p>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+---
+import Navbar from "../components/Navbar.astro";
+
+type AgeResponse = {
+  age: number;
+  nextBirthday: string;
+};
+
+const ageResponse = await fetch("https://age.astrid.sh/11/19/03").then(
+  async (response) => {
+    return (await response.json()) as AgeResponse;
+  }
+);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>astrid &lt;3</title>
+  </head>
+  <body class="h-min-screen bg-neutral-900 font-mono">
+    <Navbar />
+
+    <div class="m-12 text-white">
+      <h2 class="text-3xl">experience</h2>
+      <h2 class="text-lg">learn about my programming experience</h2>
+      <div class="mt-12">
+        <p>
+          i'm primarirly full-stack using typescript, below you will see more
+          specifics as to <span class="italic">what</span> i use.
+        </p>
+
+        <!-- Frontend -->
+        <section>
+          <h3 class="text-2xl mt-4">frontend</h3>
+          <p class="mt-4">
+            <ul>
+              <li>• react - since early 2021</li>
+              <li>• next.js - since late 2021</li>
+              <li>• tailwind - since late 2021</li>
+              <li>• radix - since early 2023</li>
+              <li>• astro - since mid 2023</li>
+              <li>• shadcn/ui - since early 2024</li>
+            </ul>
+          </p>
+        </section>
+
+        <!-- Backend -->
+        <section>
+          <h3 class="text-2xl mt-4">backend</h3>
+          <p class="mt-4">
+            <ul>
+              <li>• express - since early 2021</li>
+              <li>• aws s3 - since early 2021</li>
+              <li>• tRPC - since early 2023</li>
+              <li>• koa - since early 2023</li>
+              <li>• sentry - since early 2023</li>
+              <li>• clerk - since early 2023</li>
+              <li>• prisma - since early 2023</li>
+              <li>• stripe - since mid 2023</li>
+            </ul>
+          </p>
+        </section>
+
+        <!-- Languages -->
+        <section>
+          <h3 class="text-2xl mt-4">languages / build tools</h3>
+          <p class="mt-4">
+            <ul>
+              <li>• javascript - since early 2018</li>
+              <li>• node.js - since early 2018</li>
+              <li>• java - since late 2019</li>
+              <li>• maven - since late 2019</li>
+              <li>• typescript - since mid 2021</li>
+              <li>• kotlin - since early 2023</li>
+              <li>• gradle - since late 2023</li>
+            </ul>
+          </p>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
